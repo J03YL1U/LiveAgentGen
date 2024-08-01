@@ -1,0 +1,37 @@
+grammar org.xtext.liveprobes.liveagent.Cfg with org.eclipse.xtext.common.Terminals
+
+generate cfg "http://www.xtext.org/liveprobes/liveagent/Cfg"
+
+AgentConfig:
+	'AgentConfig' '{'
+	config = Configuration
+	'}';
+	
+Configuration:
+	'Language' '=' language=STRING
+	'compile' '=' compile=BOOLEAN
+    'compile_command' '=' command=STRING
+    'runner_path' '=' path=STRING
+    'dap_server' '=' dap=STRING
+    'parser' '=' parser=BOOLEAN
+    'IO_socket' '=' io=BOOLEAN
+    'thread_ID' '=' thread=STRING
+    'adapter_ID' '=' adapter=STRING
+    'runner_breakpoint' '=' breakpoint=STRING
+    'load_command' '=' load=STRING
+    'execute_command' '=' exec=STRING
+    	
+	additionalConfig += (Bool | Line)*
+;
+
+Bool:
+	'cfg' name=ID '=' value=BOOLEAN
+;
+
+Line:
+	'cfg' name=ID '=' value=STRING
+;
+
+BOOLEAN:
+    'True' | 'False'
+;

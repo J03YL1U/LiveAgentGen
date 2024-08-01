@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cfg:AgentConfig xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cfg="http://www.xtext.org/liveprobes/liveagent/Cfg">
+  <config language="c" compile="True" command="gcc -g -fPIC -shared -o {target_input} {target_output}" path="c_runner" dap="OpenDebugAD7" parser="True" io="False" thread="0" adapter="cppdbg" breakpoint="14" load="-exec call load_lib(&quot;{path}&quot;)" exec="-exec call {method}({','.join(args)})"/>
+</cfg:AgentConfig>
